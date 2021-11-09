@@ -131,8 +131,8 @@ const double Matrix::det() const {
 
 		size_t pivotRow = i;
 		for (size_t row = i + 1; row < num; ++row) {
-			if (std::abs(workCopy/*.get_elem*/(row, i)) > std::abs(pivotElement)) {
-				pivotElement = workCopy/*.get_elem*/(row, i);
+			if (std::abs(workCopy(row, i)) > std::abs(pivotElement)) {
+				pivotElement = workCopy(row, i);
 				pivotRow = row;
 			}
 		}
@@ -146,7 +146,7 @@ const double Matrix::det() const {
 		for (size_t row = i + 1; row < num; ++row) {
 			for (size_t col = i + 1; col < num; ++col) {
 				// Исключение.
-				workCopy(row, col) -= workCopy/*.get_elem*/(row, i) * workCopy/*.get_elem*/(i, col) / pivotElement;
+				workCopy(row, col) -= workCopy(row, i) * workCopy(i, col) / pivotElement;
 			}
 		}
 	}
