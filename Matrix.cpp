@@ -109,7 +109,7 @@ void Matrix::set_column(size_t col, const Matrix& column)
 	m_values.insert(m_values.begin() + col * m_rown, column.m_values.begin(), column.m_values.end());
 }
 
-// Поиск определителя матрицы методом Гаусса.
+// Поиск определителя матрицы методом Гаусса (Gaussian Elimination With Partial Pivoting).
 const double Matrix::det() const {
 	// Проверки:
 	if (get_cSize() != get_rSize()) throw "Error: matrix is not square";
